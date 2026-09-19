@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusConnect | My Profile</title>
+    <link href="../Styles/profile.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="sidebar">
+        <div><img src="../images/LOGO.png" class="logo" alt="logo"></div>
+        <div class="navbar">
+            <a href="../Views/dashboard.html">Dashboard</a>
+            <a href="../Views/events.html">Events</a>
+            <a href="../Views/clubs.html">Clubs & Societies</a>
+            <a href="../Views/notices.html">Notices</a>
+            <a href="../Views/opportunities.html">Opportunities</a>
+            <a href="../Views/resources.html">Resources</a>
+            <a href="../Views/profile.html">Profile</a>
+            <a href="../Views/login.html">Logout</a>
+        </div>
+    </div>
+
+    <div class="profile-section">
+        <!-- Top Bar: Search & Profile Dropdown -->
+        <div class="top-bar">
+            <input type="search" placeholder="Search profile..." id="search" name="search">
+            <div class="user-badge">
+                <img src="../images/profile.png" alt="profile">
+                <span>Rahul Sharma</span>
+            </div>
+        </div>
+
+        <!-- Section Title -->
+        <h3 class="page-title">My Profile</h3>
+
+        <!-- Profile Top Grid: 2 Cards -->
+        <div class="profile-cards-grid">
+            <!-- Left Card: Profile Summary -->
+            <div class="card profile-summary-card">
+                <div class="profile-header">
+                    <div class="avatar-wrapper">
+                        <img src="../images/profile.png" alt="Rahul Sharma" class="profile-avatar">
+                    </div>
+                    <div class="profile-info">
+                        <h4 class="profile-name">Rahul Sharma</h4>
+                        <p class="profile-meta">B.Tech Computer Science &bull; 2nd Year</p>
+                        <p class="profile-college">ABES Engineering College</p>
+                    </div>
+                </div>
+
+                <div class="stats-row">
+                    <div class="stat-item">
+                        <span class="stat-value">3</span>
+                        <span class="stat-label">Events Registered</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">5</span>
+                        <span class="stat-label">Bookmarks</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">4</span>
+                        <span class="stat-label">Joined Clubs</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Card: Personal Information -->
+            <div class="card personal-info-card">
+                <div class="card-header">
+                    <h4 class="card-title">Personal Information</h4>
+                    <button class="btn-edit-profile">Edit Profile</button>
+                </div>
+
+                <div class="info-fields">
+                    <div class="info-group">
+                        <label>Email</label>
+                        <p class="info-value email">rahul@example.com</p>
+                    </div>
+                    <div class="info-group">
+                        <label>Course</label>
+                        <p class="info-value">B.Tech Computer Science</p>
+                    </div>
+                    <div class="info-group">
+                        <label>Year</label>
+                        <p class="info-value">2nd Year</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 2: My Achievements -->
+        <div class="achievements-section">
+            <h4 class="section-title">My Achievements</h4>
+            <div class="achievements-grid">
+                <!-- Achievement 1 -->
+                <div class="achievement-card">
+                    <div class="achievement-icon icon-medal"></div>
+                    <div class="achievement-text">
+                        <h5>Event Participant</h5>
+                        <p>Registered for 3 events</p>
+                    </div>
+                </div>
+
+                <!-- Achievement 2 -->
+                <div class="achievement-card">
+                    <div class="achievement-icon icon-club"></div>
+                    <div class="achievement-text">
+                        <h5>Club Member</h5>
+                        <p>Joined 4 clubs</p>
+                    </div>
+                </div>
+
+                <!-- Achievement 3 -->
+                <div class="achievement-card">
+                    <div class="achievement-icon icon-resource"></div>
+                    <div class="achievement-text">
+                        <h5>Resource Explorer</h5>
+                        <p>Saved 5 resources</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,460 @@
+/* ==========================================================================
+   CampusConnect - Clubs & Societies Page Styles
+   Replicating design from mockup based on clubs.html & matching dashboard.css
+   ========================================================================== */
+
+/* --- Google Fonts Import --- */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+
+/* --- CSS Variables / Design Tokens --- */
+:root {
+    --primary-blue: #1a73e8;
+    --primary-blue-hover: #1557b0;
+    --primary-blue-light: #eff6ff;
+    --bg-main: #f6f9fc;
+    --bg-card: #ffffff;
+    --bg-sidebar: #0b1a2d;
+    --text-heading: #0f172a;
+    --text-body: #334155;
+    --text-muted: #64748b;
+    --text-sidebar: #94a3b8;
+    --border-color: #eef2f6;
+    --font-heading: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --radius-card: 20px;
+    --radius-btn: 8px;
+    --shadow-card: 0 2px 10px rgba(0, 0, 0, 0.03);
+    --shadow-hover: 0 12px 28px rgba(26, 115, 232, 0.1);
+}
+
+/* --- Reset & Base --- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 250px minmax(0, 1fr) auto auto;
+    column-gap: 0;
+    row-gap: 0;
+    background-color: var(--bg-main);
+    font-family: var(--font-body);
+    color: var(--text-body);
+    overflow-x: hidden;
+}
+
+/* ==========================================================================
+   1. Left Sidebar Navigation (Replicating dashboard.css)
+   ========================================================================== */
+.sidebar {
+    grid-column: 1;
+    grid-row: 1 / span 10;
+    width: 250px;
+    min-width: 250px;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    background-color: var(--bg-sidebar);
+    display: flex;
+    flex-direction: column;
+    padding: 24px 16px 20px 16px;
+    box-sizing: border-box;
+    z-index: 100;
+}
+
+/* Logo container & image */
+.sidebar .logo {
+    height: 34px;
+    width: auto;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+    margin: 0 0 24px 8px;
+    cursor: pointer;
+}
+
+/* Navbar container */
+.sidebar .navbar {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    height: calc(100vh - 90px);
+}
+
+/* Navigation Links */
+.sidebar .navbar a {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 16px;
+    border-radius: 10px;
+    font-family: var(--font-heading);
+    font-size: 0.92rem;
+    font-weight: 500;
+    color: var(--text-sidebar);
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+/* Icons via SVG Data URIs for each link */
+.sidebar .navbar a::before {
+    content: "";
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    opacity: 0.8;
+}
+
+/* 1. Dashboard (Home icon) */
+.sidebar .navbar a:nth-child(1)::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z'/%3E%3Cpolyline points='9 22 9 12 15 12 15 22'/%3E%3C/svg%3E");
+}
+
+/* 2. Events (Calendar icon) */
+.sidebar .navbar a:nth-child(2)::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='4' width='18' height='18' rx='2' ry='2'/%3E%3Cline x1='16' y1='2' x2='16' y2='6'/%3E%3Cline x1='8' y1='2' x2='8' y2='6'/%3E%3Cline x1='3' y1='10' x2='21' y2='10'/%3E%3C/svg%3E");
+}
+
+/* 3. Clubs & Societies (ACTIVE PAGE!) */
+.sidebar .navbar a:nth-child(3) {
+    background-color: var(--primary-blue);
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.sidebar .navbar a:nth-child(3)::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2'/%3E%3Ccircle cx='9' cy='7' r='4'/%3E%3Cpath d='M23 21v-2a4 4 0 0 0-3-3.87'/%3E%3Cpath d='M16 3.13a4 4 0 0 1 0 7.75'/%3E%3C/svg%3E");
+    opacity: 1;
+}
+
+/* 4. Notices (Bell icon) */
+.sidebar .navbar a:nth-child(4)::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9'/%3E%3Cpath d='M13.73 21a2 2 0 0 1-3.46 0'/%3E%3C/svg%3E");
+}
+
+/* 5. Opportunities (Briefcase icon) */
+.sidebar .navbar a:nth-child(5)::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='2' y='7' width='20' height='14' rx='2' ry='2'/%3E%3Cpath d='M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16'/%3E%3C/svg%3E");
+}
+
+/* 6. Resources (Book/Document icon) */
+.sidebar .navbar a:nth-child(6)::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 19.5A2.5 2.5 0 0 1 6.5 17H20'/%3E%3Cpath d='M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z'/%3E%3C/svg%3E");
+}
+
+/* 7. Profile (User icon) */
+.sidebar .navbar a:nth-child(7)::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2'/%3E%3Ccircle cx='12' cy='7' r='4'/%3E%3C/svg%3E");
+}
+
+/* 8. Logout (Log-out icon at bottom) */
+.sidebar .navbar a:nth-child(8) {
+    margin-top: auto;
+}
+
+.sidebar .navbar a:nth-child(8)::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4'/%3E%3Cpolyline points='16 17 21 12 16 7'/%3E%3Cline x1='21' y1='12' x2='9' y2='12'/%3E%3C/svg%3E");
+}
+
+/* Inactive Link Hover */
+.sidebar .navbar a:not(:nth-child(3)):hover {
+    background-color: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+}
+
+.sidebar .navbar a:not(:nth-child(3)):hover::before {
+    opacity: 1;
+}
+
+/* Logout Hover */
+.sidebar .navbar a:last-child:hover {
+    background-color: rgba(239, 68, 68, 0.12);
+    color: #f87171;
+}
+
+/* ==========================================================================
+   2. Top Bar: Search Input & User Profile
+   ========================================================================== */
+/* Search Input (Pill Shape) */
+input#search {
+    grid-column: 2;
+    grid-row: 1;
+    margin: 24px 0 0 36px;
+    width: 100%;
+    max-width: 460px;
+    height: 44px;
+    padding: 10px 20px 10px 44px;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 24px;
+    font-family: inherit;
+    font-size: 0.9rem;
+    color: var(--text-heading);
+    background-color: #ffffff;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: 16px center;
+    background-size: 16px 16px;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+input#search:focus {
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 3.5px rgba(26, 115, 232, 0.12);
+}
+
+/* User Profile Avatar */
+img[alt="profile"] {
+    grid-column: 3;
+    grid-row: 1;
+    margin: 24px 8px 0 20px;
+    align-self: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #e2e8f0;
+    cursor: pointer;
+}
+
+/* User Profile Name */
+span {
+    grid-column: 4;
+    grid-row: 1;
+    margin: 24px 36px 0 0;
+    align-self: center;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 0.92rem;
+    color: var(--text-heading);
+    cursor: pointer;
+    user-select: none;
+    white-space: nowrap;
+}
+
+span::after {
+    content: " ▾";
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-left: 4px;
+}
+
+/* ==========================================================================
+   3. Section Header ("CLUBS & SOCIETIES")
+   ========================================================================== */
+.clubSection {
+    grid-column: 2 / -1;
+    grid-row: 2;
+    margin: 28px 36px 24px 36px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.clubSection h4 {
+    font-family: var(--font-heading);
+    font-size: 1.65rem;
+    font-weight: 800;
+    color: var(--text-heading);
+    letter-spacing: -0.025em;
+    margin: 0;
+}
+
+/* ==========================================================================
+   4. Club Cards Grid
+   ========================================================================== */
+.club-card-container {
+    grid-column: 2 / -1;
+    grid-row: 3;
+    margin: 0 36px 40px 36px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    align-content: start;
+}
+
+/* Individual Club Card */
+.club-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-card);
+    padding: 26px 24px 22px 24px;
+    box-shadow: var(--shadow-card);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.club-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+    border-color: #bfdbfe;
+}
+
+/* Club Logo Avatar Box */
+.club-logo-small {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    background-color: var(--primary-blue-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+    flex-shrink: 0;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 24px 24px;
+}
+
+/* Dynamic SVG Icons for each club card */
+.club-card:nth-child(1) .club-logo-small {
+    background-color: #e0f2fe;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230284c7' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='16 18 22 12 16 6'/%3E%3Cpolyline points='8 6 2 12 8 18'/%3E%3C/svg%3E");
+}
+
+.club-card:nth-child(2) .club-logo-small {
+    background-color: #fef3c7;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23d97706' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolygon points='13 2 3 14 12 14 11 22 21 10 12 10 13 2'/%3E%3C/svg%3E");
+}
+
+.club-card:nth-child(3) .club-logo-small {
+    background-color: #ede9fe;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%237c3aed' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cline x1='12' y1='8' x2='12' y2='12'/%3E%3Cline x1='12' y1='16' x2='12.01' y2='16'/%3E%3C/svg%3E");
+}
+
+.club-card:nth-child(4) .club-logo-small {
+    background-color: #fee2e2;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23dc2626' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z'/%3E%3C/svg%3E");
+}
+
+.club-card:nth-child(5) .club-logo-small {
+    background-color: #dcfce7;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2316a34a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='M8 14s1.5 2 4 2 4-2 4-2'/%3E%3Cline x1='9' y1='9' x2='9.01' y2='9'/%3E%3Cline x1='15' y1='9' x2='15.01' y2='9'/%3E%3C/svg%3E");
+}
+
+.club-card:nth-child(6) .club-logo-small {
+    background-color: #ccfbf1;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230d9488' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2'/%3E%3Ccircle cx='9' cy='7' r='4'/%3E%3Cpath d='M23 21v-2a4 4 0 0 0-3-3.87'/%3E%3Cpath d='M16 3.13a4 4 0 0 1 0 7.75'/%3E%3C/svg%3E");
+}
+
+.club-card:nth-child(7) .club-logo-small {
+    background-color: #ffedd5;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ea580c' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z'/%3E%3Cpath d='M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z'/%3E%3C/svg%3E");
+}
+
+/* Club Name */
+.club-name-small {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-heading);
+    margin: 0 0 4px 0;
+}
+
+/* Club Tagline */
+.club-tagline-small {
+    font-size: 0.84rem;
+    font-weight: 600;
+    color: var(--primary-blue);
+    margin: 0 0 12px 0;
+}
+
+/* Club Description */
+.club-description-small {
+    font-size: 0.86rem;
+    line-height: 1.55;
+    color: var(--text-muted);
+    margin: 0 0 22px 0;
+    flex-grow: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Join Button */
+.btn-join {
+    width: 100%;
+    padding: 10px 0;
+    background-color: var(--primary-blue);
+    color: #ffffff;
+    font-family: var(--font-heading);
+    font-size: 0.88rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    border: none;
+    border-radius: var(--radius-btn);
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(26, 115, 232, 0.25);
+    transition: all 0.2s ease;
+    margin-top: auto;
+}
+
+.btn-join:hover {
+    background-color: var(--primary-blue-hover);
+    box-shadow: 0 4px 12px rgba(26, 115, 232, 0.35);
+    transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   5. Responsive Breakpoints
+   ========================================================================== */
+@media (max-width: 1200px) {
+    .club-card-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        grid-column: 1;
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    .sidebar .navbar {
+        flex-direction: row;
+        flex-wrap: wrap;
+        height: auto;
+    }
+
+    input#search {
+        grid-column: 1;
+        margin: 20px 20px 0 20px;
+        max-width: calc(100% - 40px);
+    }
+
+    img[alt="profile"],
+    span {
+        grid-column: 1;
+        margin-left: 20px;
+    }
+
+    .clubSection {
+        grid-column: 1;
+        margin: 20px 20px 16px 20px;
+    }
+
+    .club-card-container {
+        grid-column: 1;
+        margin: 0 20px 40px 20px;
+        grid-template-columns: 1fr;
+    }
+}

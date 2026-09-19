@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusConnect | Dashboard</title>
+    <link href="../Styles/clubs.css" rel="stylesheet">
+    <link href="../Styles/sidebar.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="sidebar">
+        <div><img src="../images/LOGO.png" class="logo" alt="logo"></div>
+        <div class="navbar">
+            <a href="../Views/dashboard.html">Dashboard</a>
+            <a href="../Views/events.html">Events</a>
+            <a href="../Views/clubs.html">Clubs & Societies</a>
+            <a href="../Views/notices.html">Notices</a>
+            <a href="../Views/opportunities.html">Opportunities</a>
+            <a href="../Views/resources.html">Resources</a>
+            <a href="../Views//profile.html">Profile</a>
+            <a href="../Views/login.html">Logout</a>
+        </div>
+    </div>
+    <input type="search" placeholder="Search Email,Clubs,Resources etc" id="search" name="search">
+    <img src="../images/profile.png" alt="profile"><span>SHUBBU HUSAIN</span>
+    <div class="clubSection">
+        <h4>CLUBS & SOCIETIES</h4>
+    </div>
+    <div class="club-card-container">
+        <!-- club cards will be inserted here by javascript -->
+    </div>
+</body>
+<script>
+    const clubs = [
+        {
+            clubName: "Enigma IT Club",
+            clubTagline: "Innovate. Code. Create.",
+            clubDescription:
+                "The technical club of JIMS VK focused on technology, coding, development, AI, cybersecurity, and other IT-related activities. Enigma provides students with opportunities to learn new technologies, work on projects, participate in competitions, and build practical technical skills."
+        },
+
+        {
+            clubName: "E-Cell",
+            clubTagline: "Think. Build. Entrepreneur.",
+            clubDescription:
+                "The Entrepreneurship Cell encourages students to develop an entrepreneurial mindset through startup ideas, business activities, innovation challenges, workshops, and entrepreneurship-focused events."
+        },
+
+        {
+            clubName: "IIC",
+            clubTagline: "Innovate Ideas. Inspire Change.",
+            clubDescription:
+                "The Institution's Innovation Council promotes innovation and creativity among students through ideation activities, workshops, competitions, startup initiatives, and problem-solving projects."
+        },
+
+        {
+            clubName: "NSS",
+            clubTagline: "Not Me But You.",
+            clubDescription:
+                "The National Service Scheme encourages students to contribute to society through social service, awareness campaigns, community activities, volunteering initiatives, and various outreach programs."
+        },
+
+        {
+            clubName: "Rotaract Club",
+            clubTagline: "Service Above Self.",
+            clubDescription:
+                "The Rotaract Club focuses on welfare and community service initiatives, including blood donation drives, social awareness campaigns, community support activities, and initiatives aimed at creating a positive impact in society."
+        },
+
+        {
+            clubName: "UBA",
+            clubTagline: "Connecting Campus with Communities.",
+            clubDescription:
+                "Unnat Bharat Abhiyan focuses on community engagement and social development through initiatives such as environmental drives, NGO collaborations, awareness campaigns, cleanliness activities, and other community-oriented programs."
+        },
+
+        {
+            clubName: "Prabhandhan",
+            clubTagline: "Lead. Manage. Inspire.",
+            clubDescription:
+                "Prabhandhan is the management club of JIMS VK that promotes leadership, management, teamwork, communication, and decision-making skills through management activities, competitions, workshops, and engaging events."
+        }
+    ];
+    const clubCardContainer = document.querySelector(".club-card-container");
+
+    clubs.forEach((club, index) => {
+        const card = document.createElement("div");
+        card.className = "club-card";
+        card.innerHTML = `
+        <div class="club-logo-small"></div>
+
+        <h4 class="club-name-small">${club.clubName}</h4>
+
+        <p class="club-tagline-small">${club.clubTagline}</p>
+
+        <p class="club-description-small">
+            ${club.clubDescription}
+        </p>
+
+        <button class="btn-join">JOIN</button>
+    `;
+
+        clubCardContainer.appendChild(card);
+    });
+</script>
+
+</html>
