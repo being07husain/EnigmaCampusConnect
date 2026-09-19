@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="../Styles/landing.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusConnect</title>
+</head>
+
+<body>
+    <div class="topbar">
+        <img src="../images/LOGO.png" class="logo"><button class="login" onclick="loginpage()">Login</button><button
+            class="signup" onclick="registerpage()">SignUp</button>
+    </div>
+    <div class="hero-section">
+        <h2>YOUR CAMPUS,</h2>
+        <h2>ALL IN ONE PLACE</h2>
+        <p>CampusConnect is a platform that helps you to connect with each other.
+            Discover Events, Clubs, and every Opportunity in your campus through CampusConnect.
+        </p>
+        <button class="get-started" onclick="loginpage()">Get Started</button>
+        <div class="main-image">
+            <img src="../images//LANDING PAGE IMAGE.png">
+        </div>
+    </div>
+    <div class="cards">
+        <div class="card">
+            <h5>Events</h5>
+            <p>Workshops,Seminars,Competitions and more..</p>
+        </div>
+        <div class="card">
+            <h5>Clubs</h5>
+            <p>Join the community of like-minded individuals.</p>
+        </div>
+        <div class="card">
+            <h5>Opportunities</h5>
+            <p>Internships,Jobs,Contests and more..</p>
+        </div>
+        <div class="card">
+            <h5>Notices</h5>
+            <p>Stay updated with the latest notices and announcements.</p>
+        </div>
+        <div class="card">
+            <h5>Resources</h5>
+            <p>Syllabus,Notes,Study Materials and more..</p>
+        </div>
+    </div>
+</body>
+<script>
+    function loginpage() {
+        window.location.href = "login.html";
+    }
+    function registerpage() {
+        window.location.href = "register.html";
+    }
+</script>
+
+</html>

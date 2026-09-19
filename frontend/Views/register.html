@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusConnect | Register</title>
+    <link rel="stylesheet" href="../Styles/register.css">
+</head>
+
+<body>
+    <div class="leftSideImage">
+        <img src="../images/SIDEIMAGE.jfif" alt="Campus">
+    </div>
+    <div class="register-container">
+        <h2>Create Account</h2>
+        <p>
+            Register to join the CampusConnect community
+            and be a part of your campus
+        </p>
+        <form id="registerForm">
+            <!-- Profession -->
+            <select name="profession" id="profession" required>
+                <option value="">Choose Your Profession</option>
+                <option value="student">Student</option>
+                <option value="faculty">Faculty</option>
+            </select>
+            <!-- Common Fields -->
+            <div id="commonFields" class="hidden">
+                <input type="text" name="fullname" id="fullname" placeholder="Full Name">
+            </div>
+            <!-- Student Fields -->
+            <div id="studentFields" class="hidden">
+                <input type="text" name="course" id="course" placeholder="Course (e.g. BCA)">
+                <input type="date" name="dob" id="dob">
+                <input type="text" name="rank" id="rank" placeholder="Rank">
+                <input type="email" name="email" id="email" placeholder="email">
+                <input type="password" name="password" id="studentPassword" placeholder="Password">
+            </div>
+            <!-- Faculty Fields -->
+            <div id="facultyFields" class="hidden">
+                <input type="text" name="department" id="department" placeholder="Department">
+                <input type="date" name="dateofjoin" id="dateofjoin">
+                <input type="email" name="collegeEmail" id="collegeEmail" placeholder="College Email ID">
+                <input type="password" name="password" id="facultyPassword" placeholder="Password">
+            </div>
+            <button type="submit" id="registerBtn" class="hidden" onclick="displayMessage()">
+                Create Account
+            </button>
+        </form>
+        <p>
+            Already have an account?
+            <button class="login" onclick="loginpage()">Login</button>
+        </p>
+    </div>
+    <script>
+        const profession = document.getElementById("profession");
+        const commonFields = document.getElementById("commonFields");
+        const studentFields = document.getElementById("studentFields");
+        const facultyFields = document.getElementById("facultyFields");
+        const registerBtn = document.getElementById("registerBtn");
+        profession.addEventListener("change", function () {
+            // Hide everything first
+            commonFields.classList.add("hidden");
+            studentFields.classList.add("hidden");
+            facultyFields.classList.add("hidden");
+            registerBtn.classList.add("hidden");
+            // Student selected
+            if (this.value === "student") {
+                commonFields.classList.remove("hidden");
+                studentFields.classList.remove("hidden");
+                registerBtn.classList.remove("hidden");
+            }
+            // Faculty selected
+            else if (this.value === "faculty") {
+                commonFields.classList.remove("hidden");
+                facultyFields.classList.remove("hidden");
+                registerBtn.classList.remove("hidden");
+            }
+        });
+        function loginpage() {
+            window.location.href = "login.html";
+        }
+
+        function displayMessage() {
+            if (profession.value === "student") {
+                alert("YOUR USERNAME IS " + document.getElementById("course").value + document.getElementById("rank").value + "9266");
+            }
+            else {
+                alert("YOUR USERNAME IS " + document.getElementById("collegeEmail").value);
+            }
+        }
+
+    </script>
+</body>
+
+</html>
