@@ -14,7 +14,7 @@
     </div>
     <h2>Welcome Back</h2>
     <p>Login to your account to get started</p>
-    <form>
+    <form onsubmit="redirecting()" action="../Views/dashboard.html">
         <label for="username">Username</label>
         <input type="text" id="username" name="username">
         <label for="password">Password</label>
@@ -26,6 +26,9 @@
 <script>
     function registerpage() {
         window.location.href = "register.html";
+    }
+    function redirecting() {
+        window.location.href = "dashboard.html";
     }
 </script>
 
